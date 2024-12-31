@@ -3,116 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy New Year!</title>
+    <title>Surprise for Sunnu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Background and Typography */
         body {
+            font-family: 'Playball', cursive;
             margin: 0;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom, #ff758c, #ff7eb3);
-            color: #fff;
-            overflow-x: hidden;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .section1 {
+            position: relative;
+            height: 100vh;
+            background: #ffcccb;
             text-align: center;
-        }
-
-        /* Header Section */
-        header {
-            padding: 20px;
-            font-size: 36px;
-            font-weight: bold;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Animation for header */
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(-50px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        header {
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        /* Image Gallery */
-        .gallery {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
-            margin: 20px;
+            align-items: center;
+            flex-direction: column;
         }
-
-        .gallery img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.5s, box-shadow 0.5s;
-        }
-
-        .gallery img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        /* New Year Message */
-        .message {
-            margin: 30px 20px;
-            font-size: 24px;
-            animation: fadeIn 3s ease-in-out;
-        }
-
-        /* Floating Balloons */
-        @keyframes float {
-            0% { transform: translateY(100vh); }
-            100% { transform: translateY(-150vh); }
-        }
-
         .balloon {
             position: absolute;
-            width: 50px;
-            height: 70px;
-            background: rgba(255, 255, 255, 0.8);
+            width: 100px;
+            height: 150px;
+            background-color: #ff69b4;
             border-radius: 50%;
-            animation: float 10s linear infinite;
+            animation: float 3s infinite ease-in-out;
         }
-
-        .balloon:nth-child(2) { animation-delay: 2s; left: 20%; }
-        .balloon:nth-child(3) { animation-delay: 4s; left: 50%; }
-        .balloon:nth-child(4) { animation-delay: 6s; left: 80%; }
-
-        /* Footer */
-        footer {
-            margin-top: 50px;
-            font-size: 18px;
+        .balloon:nth-child(odd) {
+            background-color: #ff1493;
+        }
+        .balloon:nth-child(even) {
+            background-color: #ff6347;
+        }
+        .congratulation-text {
+            font-size: 2rem;
+            color: white;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0);
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+            100% {
+                transform: translateY(0) rotate(-10deg);
+            }
+        }
+        .section2, .section3, .section4, .section5, .section6 {
+            padding: 50px;
+            text-align: center;
+            background-color: #ffffff;
+        }
+        .unlock-form input {
+            text-align: center;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        #unlock {
+            padding: 10px 20px;
+            background-color: #ff1493;
+            color: white;
+            border: none;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <header>Happy New Year, Sunnu Boru GTM!</header>
-
-    <!-- Animated Balloons -->
-    <div class="balloon" style="left: 10%;"></div>
-    <div class="balloon"></div>
-    <div class="balloon"></div>
-    <div class="balloon"></div>
-
-    <!-- Gallery -->
-    <div class="gallery">
-        <img src="photo1.jpg" alt="Memory 1">
-        <img src="photo2.jpg" alt="Memory 2">
-        <img src="photo3.jpg" alt="Memory 3">
-        <img src="photo4.jpg" alt="Memory 4">
+    <!-- Section 1 - Congratulations -->
+    <div class="section1">
+        <div class="congratulation-text">
+            Congratulations, Sunnu! 🎉<br>
+            Just scroll down to reveal your surprise! 🎁
+        </div>
     </div>
 
-    <!-- New Year Message -->
-    <div class="message">
-        May your year be filled with joy, love, and endless possibilities!  
-        Here's to making unforgettable memories together.
+    <!-- Unlock Form -->
+    <div class="unlock-form">
+        <h2>Enter the Unlock Code: <span style="font-size: 1.5rem; color: #ff1493;">28</span></h2>
+        <div>
+            <input type="text" id="code1" maxlength="1" placeholder="?" class="code">
+            <input type="text" id="code2" maxlength="1" placeholder="?" class="code">
+        </div>
+        <button id="unlock">Unlock</button>
+        <div id="textMachine" style="display: none;">
+            <span id="success-message" style="color: green; font-size: 1.5rem;"></span>
+        </div>
     </div>
 
-    <!-- Footer -->
-    <footer>Made with ❤ by Swapnil</footer>
+    <!-- Sections with Messages and Balloons -->
+    <div class="section2">
+        <div class="balloon" style="top: 20px; left: 50px;"></div>
+        <div class="balloon" style="top: 120px; left: 150px;"></div>
+        <div class="balloon" style="top: 200px; left: 250px;"></div>
+        <p>
+            Happy Birthday, Sunnu! 🎂 May your year be full of love, happiness, and beautiful moments.
+        </p>
+    </div>
+
+    <!-- Section 3 - Personal Message -->
+    <div class="section3">
+        <p>
+            Every day spent with you is a beautiful adventure. Thank you for being part of my life! 😘
+        </p>
+    </div>
+
+    <!-- Section 4 - Love -->
+    <div class="section4">
+        <p>
+            Our love story is just beginning, and I promise to keep making every moment special for you. 💖
+        </p>
+    </div>
+
+    <!-- Section 5 - Wishes for the Future -->
+    <div class="section5">
+        <p>
+            Here's to a future filled with joy, success, and endless possibilities. I’ll always be by your side. ❤️
+        </p>
+    </div>
+
+    <!-- Section 6 - Thank You Message -->
+    <div class="section6">
+        <p>
+            Thank you for being so amazing, Sunnu! I can't wait to create more memories with you. 💕
+        </p>
+        <iframe width="854" height="480" src="https://www.youtube.com/embed/Scbh1jmRmek" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/animate.js"></script>
+    <script>
+        // Unlock functionality
+        $('#unlock').on('click', function () {
+            var code = $('#code1').val() + $('#code2').val();
+            if (code === '28') {
+                $('#success-message').text('Success! 🎉 Your surprise is revealed!').fadeIn();
+                setTimeout(function () {
+                    window.location.href = "https://swapgtm.github.io/new-year-surprise/";
+                }, 2000);
+            } else {
+                $('#success-message').text('Wrong Code! Try again.').css('color', 'red').fadeIn();
+            }
+        });
+    </script>
 </body>
 </html>
